@@ -1,0 +1,57 @@
+* styled components: 
+
+Con esto solucionamos el problema de TIPO de styled components
+--     npm i --save-dev  @types/styled-components-react-native
+--     Agregar en tsconfig.json en parte de types -> "types": ["react-native", "jest", "@types/styled-components-react-native"],
+
+-----------------------------------------------------------------------
+
+* react navigation:
+    -- install --> https://reactnavigation.org/docs/getting-started/
+        npm install @react-navigation/native
+        npm install react-native-screens react-native-safe-area-context
+        Ahora configurar: Add the highlighted code to the body of MainActivity class:
+
+    public class MainActivity extends ReactActivity {
+    // ...
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(null);
+    }
+    // ...
+    }
+
+    and make sure to add the following import statement at the top of this file below your package statement:
+        import android.os.Bundle;
+
+-- bottom tabs navigation:
+    npm install @react-navigation/bottom-tabs
+    npm install @react-navigation/native-stack
+
+--------------------------------------------------------------------------
+
+* react native vectors icons
+    npm i --save react-native-vector-icons
+    @types/react-native-vector-icons
+
+    - despues: hay que agregar en android/app/build.gradle --> 
+        apply from: "../../node_modules/react-native-vector-icons/fonts.gradle"
+
+    - despues en terminal:
+        npx react-native run-android
+
+    --- y LISTO 
+
+    Example usage:
+    import Ionicons from 'react-native-vector-icons/Ionicons';
+
+        <TouchableOpacity onPress={reloadGame}>
+            <Ionicons name="md-reload-circle" size={30} />
+        </TouchableOpacity>
+
+        <Pressable disabled={isGameOver} onPress={pauseGame}>
+            <Ionicons
+            name={isPaused ? 'md-play-circle' : 'md-pause-circle'}
+            size={30}
+            />
+        </Pressable>
